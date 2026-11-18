@@ -15,7 +15,10 @@ concurrency:
 jobs:
   test-package-publish:
     runs-on: ubuntu-latest
-    container: fedora:45
+    container:
+      image: fedora:45
+      # Fedora's kwin_wayland carries cap_sys_nice, including for --version.
+      options: --cap-add=SYS_NICE
     steps:
       - name: Install development and runtime dependencies
         run: |
