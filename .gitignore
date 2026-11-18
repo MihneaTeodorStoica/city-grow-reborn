@@ -12,3 +12,10 @@ Doxyfile
 *.kdevses
 .*kate-swp
 build/
+
+# Generated release and documentation output
+dist/
+docs/_site/
+docs/.jekyll-cache/
+__pycache__/
+*.pyc

@@ -5,15 +5,18 @@
             {
                 "Email": "flemke2go@gmail.com",
                 "Name": "Felix Lemke"
+            },
+            {
+                "Name": "Mihnea Teodor Stoica"
             }
         ],
-        "Description": "City Grow simulator as screen locker",
+        "Description": "Colorful branching geometry with adaptive window-coverage scheduling",
         "Icon": "plasma",
-        "Id": "org.kde.plasma.citygrow_debug",
-        "License": "LGPLv2+",
-        "Name": "Simple City Grow - Debug",
-        "Version": "1.0",
-        "Website": "https://plasma.kde.org/"
+        "Id": "io.github.mihneateodorstoica.citygrowreborn",
+        "License": "MIT",
+        "Name": "City Grow Reborn",
+        "Version": "0.1.0",
+        "Website": "https://github.com/MihneaTeodorStoica/city-grow-reborn"
     },
     "X-KDE-ParentApp": "org.kde.plasmashell"
 }

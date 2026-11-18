@@ -1,2 +1,2 @@
 #! /usr/bin/env bash
-$XGETTEXT `find . -name \*.qml` -o $podir/plasma_wallpaper_org.kde.plasma.citygrow.pot
+find package kwin-script -name '*.qml' -print0 | xargs -0 "$XGETTEXT" -o "$podir/plasma_wallpaper_io.github.mihneateodorstoica.citygrowreborn.pot"

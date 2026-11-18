@@ -1,0 +1,5 @@
+singleton RuntimeHub 1.0 RuntimeHub.qml
+VisibilityController 1.0 VisibilityController.qml
+CityView 1.0 CityView.qml
+CanvasTile 1.0 CanvasTile.qml
+SettingControl 1.0 SettingControl.qml

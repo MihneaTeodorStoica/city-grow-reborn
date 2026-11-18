@@ -1,0 +1,60 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  test-package-publish:
+    runs-on: ubuntu-latest
+    container: fedora:45
+    steps:
+      - name: Install development and runtime dependencies
+        run: |
+          dnf -y install \
+            git nodejs python3 bash curl coreutils gh qt6-qtdeclarative-devel \
+            /usr/bin/kpackagetool6 /usr/bin/plasmashell /usr/bin/kwin_wayland \
+            /usr/bin/kscreen-doctor /usr/bin/dbus-send /usr/bin/kwriteconfig6 /usr/bin/qdbus-qt6 \
+            /usr/lib64/qt6/qml/org/kde/plasma/plasma5support/qmldir \
+            /usr/lib64/qt6/qml/org/kde/plasma/workspace/dbus/qmldir \
+            /usr/lib64/qt6/qml/org/kde/kquickcontrols/qmldir \
+            /usr/lib64/qt6/qml/Qt/labs/folderlistmodel/qmldir
+      - uses: actions/checkout@v4
+      - name: Test deterministic simulation, coverage, and recipes
+        run: node --test tests/engine.test.cjs tests/coverage.test.cjs tests/recipes.test.cjs
+      - name: Test real QML rasterization and scheduling at both device scales
+        env:
+          QT_QPA_PLATFORM: offscreen
+          QT_QUICK_BACKEND: software
+          XDG_RUNTIME_DIR: /tmp/citygrow-qml-runtime
+        run: |
+          mkdir -p "$XDG_RUNTIME_DIR"
+          chmod 700 "$XDG_RUNTIME_DIR"
+          for scale in 1 1.5; do
+            QT_SCALE_FACTOR=$scale qmltestrunner-qt6 -input tests/qml || exit
+          done
+      - name: Test actual KPackage installs in isolated XDG directories
+        run: bash tests/installer.sh
+      - name: Package the exact tag
+        run: python3 scripts/package.py --version "$GITHUB_REF_NAME" --output dist
+      - name: Publish versioned assets
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          if gh release view "$GITHUB_REF_NAME" >/dev/null 2>&1; then
+            gh release upload "$GITHUB_REF_NAME" \
+              "dist/city-grow-reborn-${GITHUB_REF_NAME}.zip" dist/install.sh dist/SHA256SUMS --clobber
+          else
+            gh release create "$GITHUB_REF_NAME" \
+              "dist/city-grow-reborn-${GITHUB_REF_NAME}.zip" dist/install.sh dist/SHA256SUMS \
+              --verify-tag --title "City Grow Reborn $GITHUB_REF_NAME" --generate-notes
+          fi

@@ -1,0 +1,8 @@
+title: City Grow Reborn
+description: Colorful branching geometry for KDE Plasma, with adaptive scheduling and per-user installation.
+theme: jekyll-theme-minimal
+url: https://mihneateodorstoica.github.io
+baseurl: /city-grow-reborn
+repository: MihneaTeodorStoica/city-grow-reborn
+show_downloads: false
+markdown: kramdown

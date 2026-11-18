@@ -1,0 +1,17 @@
+{
+    "KPackageStructure": "KWin/Script",
+    "KPlugin": {
+        "Id": "citygrow-reborn-visibility",
+        "Name": "City Grow Reborn window-coverage estimate",
+        "Description": "Event-driven per-output coverage for the City Grow Reborn wallpaper",
+        "Version": "0.1.0",
+        "License": "MIT",
+        "Website": "https://github.com/MihneaTeodorStoica/city-grow-reborn",
+        "Authors": [
+            { "Name": "Felix Lemke", "Comment": "Original City Grow wallpaper" },
+            { "Name": "Mihnea Teodor Stoica", "Comment": "City Grow Reborn" }
+        ]
+    },
+    "X-Plasma-API": "declarativescript",
+    "X-Plasma-MainScript": "ui/main.qml"
+}
