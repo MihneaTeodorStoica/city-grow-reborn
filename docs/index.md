@@ -27,7 +27,7 @@ bash install.sh
 
 The installer installs two per-user packages and enables only its own visibility script. It does **not** choose your wallpaper, restart Plasma/KWin, run sudo, or change other scripts. Select **City Grow Reborn** in **Desktop and Wallpaper** afterward. The original City Grow package remains installed and untouched.
 
-Read the [prerequisites, exact-version, offline, upgrade, and removal instructions]({{ '/installation.html' | relative_url }}) first. The hosted download and release routes become usable only after the first release and Pages deployment are published.
+Read the [prerequisites, exact-version, offline, upgrade, and removal instructions]({{ '/installation.html' | relative_url }}) first. Version-tagged installer source and release assets are linked there.
 
 ## Make it yours
 

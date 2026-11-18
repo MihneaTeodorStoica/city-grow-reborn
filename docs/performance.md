@@ -24,7 +24,9 @@ Behavior, native appearance/settings, helper coverage/reload, and matched CPU/GP
 | Multiple active outputs | Geometry fixtures passed; only DP-2 tested live. Disabled eDP-1 is not a live check. |
 | Matched 30-second plasmashell + kwin_wayland CPU measurements | Completed; both processes included. See the session samples below. |
 | Whole-desktop NVIDIA GPU power/utilization samples | Completed; noisy whole-desktop readings, not wallpaper-only watts. |
-| Published Pages/release route and isolated version-pinned install | Pending publication and HTTPS proof. |
+| Published Pages/release route and isolated version-pinned install | Passed: HTTPS guide/installer, both release checksums, immutable tagged installer, and fresh-XDG `--version v0.1.0 --no-enable` installation of both package IDs at 0.1.0; no KWin configuration created. |
+
+Release proof: [v0.1.0 assets](https://github.com/MihneaTeodorStoica/city-grow-reborn/releases/tag/v0.1.0) · [passing release workflow](https://github.com/MihneaTeodorStoica/city-grow-reborn/actions/runs/44251207532). The workflow ran Node behavior checks, real QML tests at both scale factors, and actual isolated KPackage install/rollback tests before publishing. Fedora's disposable CI container grants only the additional `SYS_NICE` capability needed to execute its capability-marked KWin binary; installer validation is not bypassed.
 
 ## Matched session samples — 2026-11-18
 

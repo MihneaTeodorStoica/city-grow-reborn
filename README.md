@@ -6,9 +6,9 @@ an event-driven KWin companion supplies an adaptive **window-coverage estimate**
 
 First supported target: **Plasma/KWin 6.8+ on Wayland**. Initial version: **0.1.0**.
 
-**Verification/publication status:** actual desktop proof, resource measurements,
-and the hosted release route are pending. No CPU or power-saving result is claimed.
-See the [verification record](docs/performance.md#verification-status).
+**Verification:** native appearance/settings, seven window-coverage cases,
+pause/resume, helper reload, and matched resource measurements passed.
+See the [verification record and live/hardware limits](docs/performance.md#verification-status).
 
 ## Install without the Plasma Store
 
@@ -20,7 +20,7 @@ less install.sh
 bash install.sh
 ```
 
-Hosted routes become usable after the first tested release and Pages publication.
+The hosted guide provides the canonical installer and version-pinned source links.
 The installer resolves one exact stable tag, validates archive/checksums and both
 package IDs, and rolls back both user packages and its enabled setting on failure.
 It does not select a wallpaper or modify the original City Grow package. Select

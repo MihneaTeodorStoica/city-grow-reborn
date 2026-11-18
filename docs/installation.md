@@ -47,7 +47,7 @@ bash install-v0.1.0.sh --version v0.1.0
 
 [Browse the version-tagged installer source](https://github.com/MihneaTeodorStoica/city-grow-reborn/blob/v0.1.0/docs/install.sh) · [Release assets](https://github.com/MihneaTeodorStoica/city-grow-reborn/releases/tag/v0.1.0)
 
-These versioned routes are pending publication until the first release passes its runtime proof.
+Pin both the installer source and payload when you need a reproducible version; the unversioned Pages installer tracks the maintained guide.
 
 After installation, select **City Grow Reborn** in **Desktop and Wallpaper** on each desired output. Installation never selects it for you. The original `org.kde.plasma.citygrow` and unrelated wallpapers are not modified.
 
